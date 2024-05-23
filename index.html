@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Collaboration Board</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #canvas-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        #drawingCanvas {
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: crosshair;
+        }
+
+        #controls-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #tools {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #options {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        label {
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        #colorPicker {
+            width: 30px;
+            height: 30px;
+            margin-right: 20px;
+        }
+
+        #lineWidthInput {
+            width: 60px;
+            margin-right: 20px;
+        }
+
+        #saveButton {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #saveButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Collaboration Board</h1>
+    <p>This is the real-time collaboration board, and with this you create your simple notes and drawings. Additionally, you can save it in your desired image formats.</p>
+    <div id="canvas-container">
+        <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    </div>
+
+    <div id="controls-container">
+        <div id="tools">
+            <button id="penBtn">Pen</button>
+            <button id="eraseBtn">Eraser</button>
+            <button id="rectangleBtn">Rectangle</button>
+            <button id="circleBtn">Circle</button>
+        </div>
+
+        <div id="options">
+            <label for="colorPicker">Color:</label>
+            <input type="color" id="colorPicker" value="#000000">
+
+            <label for="lineWidthInput">Line Width:</label>
+            <input type="range" id="lineWidthInput" min="1" max="20" value="2">
+        </div>
+
+        <button id="saveButton">Save Drawing</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
